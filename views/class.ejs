@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/main.css">
+  <title>Manage</title>
+</head>
+
+
+<body>
+  <!-- 页面顶部导航栏开始 -->
+  <nav class="navbar navbar-default">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <!-- 页面缩小后的顶部导航栏 -->
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"
+          aria-expanded="false">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <!-- 公司标志图片 -->
+        <a class="navbar-brand" href="#">
+          <img src="images/favicon.jpg">
+        </a>
+      </div>
+
+      <!-- 导航按钮 -->
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav">
+          <li>
+            <a href="/">随机点名
+            </a>
+          </li>
+          <li class="active">
+            <a href="/class">班级管理</a>
+          </li>
+      </div>
+      <!-- 导航按钮结束 -->
+    </div>
+  </nav>
+  <!-- 页面顶部导航栏结束 -->
+
+  <!-- 主体部分 -->
+  <div class="container">
+    <!-- 顶部居中标题 -->
+    <h1 class="text-center">班级选择</h1>
+
+    <!-- 主体中间部分 -->
+    <div class="row">
+      <div class="col-md-12">
+        <div class="panel panel-default ">
+          <!-- 顶部 -->
+          <div class="panel-heading">班级管理</div>
+          <!-- 中间 -->
+          <div class="panel-body">
+            <div class="row">
+              <div class="col-xs-4 text-center">
+                <p>班级选择</p>
+              </div>
+              <div class="col-xs-4">
+                <select class="form-control" id="classselect">
+                  <%for(var i = 0;i < data.length;i++) { %>
+                    <option>
+                      <%=data[i].className%>
+                    </option>
+                    <%}%>
+                </select>
+              </div>
+              <div class="col-xs-4">
+                <div class="btn-group pull-right btn-ctrl" role="group" aria-label="...">
+                  <button type="button" class="btn btn-default" id="deleteclass">-删除班级</button>
+                </div>
+              </div>
+            </div>
+            <div class="row row-ctrl-margin">
+              <div class="col-xs-4 text-center">
+                <p>班级名称</p>
+              </div>
+              <div class="col-xs-4">
+                <input type="text" class="form-control" placeholder="请输入班级" aria-describedby="basic-addon1" id="className">
+              </div>
+              <div class="col-xs-4">
+                <div class="btn-group pull-right btn-ctrl" role="group" aria-label="...">
+                  <button type="button" class="btn btn-default" id="addclass">+添加班级</button>
+                </div>
+              </div>
+            </div>
+            <div class="row row-ctrl-margin">
+              <div class="col-xs-4 text-center">
+                <p>学生姓名</p>
+              </div>
+              <div class="col-xs-4">
+                <input type="text" class="form-control" placeholder="请输入学生姓名" aria-describedby="basic-addon1" id="studentName">
+              </div>
+              <div class="col-xs-4">
+                <div class="btn-group pull-right btn-ctrl" role="group" aria-label="...">
+                  <button type="button" class="btn btn-default" id="addstudent">+添加学生</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- 检索数据显示部分 -->
+          <table class="table text-center">
+            <thead>
+              <tr>
+                <th class="col-xs-4">序号</th>
+                <th class="col-xs-4">姓名</th>
+                <th class="col-xs-4">操作</th>
+              </tr>
+            </thead>
+
+            <tbody id="studentList">
+              <%if(data.length>0) {%>
+                <%for(var i = 0;i < data[0].students.length;i++){%>
+                  <tr>
+                    <td class="number">
+                      <%=i+1%>
+                    </td>
+                    <td>
+                      <%=data[0].students[i]%>
+                    </td>
+                    <td>
+                      <button class="deleteStudent">删除</button>
+                    </td>
+                  </tr>
+                  <%}%>
+                    <%}%>
+            </tbody>
+          </table>
+
+        </div>
+      </div>
+    </div>
+
+
+
+
+
+    <script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="js/main.js"></script>
+</body>
+
+</html>

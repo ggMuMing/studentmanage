@@ -1,0 +1,29 @@
+body {
+  overflow-y:scroll;
+}
+.navbar-brand img {
+  width: 75px;
+}
+
+.ctrlWidth {
+  width: 100%;
+}
+.container > .text-center {
+  margin-top: 0px;
+}
+.btn-ctrl {
+  width: 50%;
+}
+.btn-group .btn {
+  width: 100%;
+}
+.row-ctrl-margin {
+  margin-top: 5px;
+}
+.row .text-center p{
+  margin-bottom: 0px;
+  line-height: 30px;
+}
+th {
+  text-align: center;
+}
